@@ -1,0 +1,55 @@
+{
+  "sheet": "hooks",
+  "what": "Every point where the mod touches 9 Kings. Exact class/member names are discovered at runtime by reflection against BepInEx's interop assemblies and can be overridden in the mod's hooks.json override file on the player's PC, so a game update never needs a recompile to re-point a hook.",
+  "rows": [
+    {
+      "hook": "king_select",
+      "when": "run start, king choice screen",
+      "does": "Adds the three Bopl blob kings to the selectable roster; picking one swaps the player's ruler to a blob king and applies its passive + starting ability",
+      "configKey": "kingSelect",
+      "check": "ok"
+    },
+    {
+      "hook": "draft",
+      "when": "every round's card draft",
+      "does": "Injects one extra Bopl ability card drawn from abilities.json pool into the draft; playing it stores the ability for the next battle",
+      "configKey": "draft",
+      "check": "ok"
+    },
+    {
+      "hook": "battle",
+      "when": "battle resolution, each combat step",
+      "does": "Applies battle.json ring-out layer after 9 Kings' own combat math: computes push_tiles, moves units, destroys edge-crossers, checks king_ring_out",
+      "configKey": "battle",
+      "check": "ok"
+    },
+    {
+      "hook": "units",
+      "when": "army build, unit spawn",
+      "does": "Replaces the blob-king's melee/ranged lines with units.json blob troops and tags them with mass + knockback",
+      "configKey": "units",
+      "check": "ok"
+    },
+    {
+      "hook": "content_reader",
+      "when": "mod load, once",
+      "does": "Reads ability names, descriptions and player colors from {game:custom-bopl-battle}; logs exactly which files it read; mod runs with mechanics intact and names resolved from Bopl's own localization",
+      "configKey": "boplContent",
+      "check": "ok"
+    },
+    {
+      "hook": "versus_net",
+      "when": "versus mode host/join",
+      "does": "LAN host/join per multiplayer.json; lockstep of the blob-skirmish round between two players' games",
+      "configKey": "net",
+      "check": "ok"
+    },
+    {
+      "hook": "test_mode",
+      "when": "test run only",
+      "does": "Reads Melty's test seed/checks file, walks king select -> draft -> battle, appends pass/fail per check, writes auto-screenshots",
+      "configKey": "test",
+      "check": "ok"
+    }
+  ]
+}

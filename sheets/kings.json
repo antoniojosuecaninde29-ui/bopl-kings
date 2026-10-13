@@ -1,0 +1,40 @@
+{
+  "sheet": "kings",
+  "what": "The Bopl blob kings the player picks at run start in 9 Kings. Bopl's blob look (color) and every ability name/description are read at runtime from the player's installed copy of Bopl Battle via boplRef; nothing from Bopl is copied into this mod.",
+  "kingNamePolicy": "King names are mashup text (Bopl has no named characters); colors resolve from Bopl's player-color table.",
+  "rows": [
+    {
+      "id": "crimson",
+      "name": "Crimson King",
+      "boplColorRef": "bopl:player_colors/crimson",
+      "passive": "momentum",
+      "passiveEffect": "Each ring-out your army scores grants +10% attack for the rest of the battle (stacks)",
+      "startingAbility": "dash",
+      "playstyle": "aggressive",
+      "gridBonus": "+1 attack per ring-out scored",
+      "check": "ok"
+    },
+    {
+      "id": "azure",
+      "name": "Azure King",
+      "boplColorRef": "bopl:player_colors/azure",
+      "passive": "mass",
+      "passiveEffect": "Your units cannot be knocked back by ring-out force below their own attack value",
+      "startingAbility": "gravity_bomb",
+      "playstyle": "control",
+      "gridBonus": "-50% incoming knockback",
+      "check": "ok"
+    },
+    {
+      "id": "verdant",
+      "name": "Verdant King",
+      "boplColorRef": "bopl:player_colors/verdant",
+      "passive": "regrowth",
+      "passiveEffect": "Blob units heal 2 HP at the start of every battle round",
+      "startingAbility": "vine",
+      "playstyle": "swarm",
+      "gridBonus": "+2 HP regen per round",
+      "check": "ok"
+    }
+  ]
+}

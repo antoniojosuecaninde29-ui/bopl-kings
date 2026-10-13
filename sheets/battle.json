@@ -1,0 +1,36 @@
+{
+  "sheet": "battle",
+  "what": "The ring-out physics layer the mod applies on top of 9 Kings' battlefield: Bopl Battle's core rule (knock the other side off the platform) translated to grid combat.",
+  "rows": [
+    {
+      "rule": "ring_out_edge",
+      "effect": "Any unit pushed beyond the battlefield edge is destroyed, regardless of HP",
+      "check": "ok"
+    },
+    {
+      "rule": "knockback_formula",
+      "effect": "push_tiles = attacker_knockback + floor(attacker_attack / 3) - floor(defender_mass / 2), minimum 0",
+      "check": "ok"
+    },
+    {
+      "rule": "bounce",
+      "effect": "A unit that would be pushed past the edge by 0 tiles or less into a wall stays and takes 2 impact damage",
+      "check": "ok"
+    },
+    {
+      "rule": "edge_grip",
+      "effect": "A unit on the last row before the edge takes +1 push from every knockback",
+      "check": "ok"
+    },
+    {
+      "rule": "king_ring_out",
+      "effect": "If the enemy king unit is ring-out, its whole army shatters: instant battle victory",
+      "check": "ok"
+    },
+    {
+      "rule": "blob_squish",
+      "effect": "Blob units survive one lethal hit per battle at 1 HP (squish), then are destroyed normally",
+      "check": "ok"
+    }
+  ]
+}

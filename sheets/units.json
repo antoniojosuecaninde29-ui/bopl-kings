@@ -1,0 +1,42 @@
+{
+  "sheet": "units",
+  "what": "Blob troop cards the blob-king's army is built from. Colors resolve from the player's Bopl Battle; stats are the mashup's own. Blob units replace the player-king's melee line on the grid and fight with ring-out knockback (see battle.json).",
+  "rows": [
+    {
+      "id": "blob_warrior",
+      "boplColorRef": "bopl:player_colors/king_color",
+      "name": "Blob Warrior",
+      "hp": 12,
+      "attack": 3,
+      "range": 1,
+      "knockback": 1,
+      "mass": 2,
+      "slots": "melee_line",
+      "check": "ok"
+    },
+    {
+      "id": "blob_slinger",
+      "boplColorRef": "bopl:player_colors/king_color",
+      "name": "Blob Slinger",
+      "hp": 8,
+      "attack": 2,
+      "range": 3,
+      "knockback": 1,
+      "mass": 1,
+      "slots": "ranged_line",
+      "check": "ok"
+    },
+    {
+      "id": "blob_brute",
+      "boplColorRef": "bopl:player_colors/king_color",
+      "name": "Blob Brute",
+      "hp": 20,
+      "attack": 4,
+      "range": 1,
+      "knockback": 3,
+      "mass": 4,
+      "slots": "melee_line",
+      "check": "ok"
+    }
+  ]
+}

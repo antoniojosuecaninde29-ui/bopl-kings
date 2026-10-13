@@ -1,0 +1,30 @@
+{
+  "sheet": "multiplayer",
+  "what": "Head-to-head: two players each command a Bopl blob-king's army in a synchronous blob-skirmish round (3 blob clashes, best of 3). 9 Kings itself stays single-player; the versus mode is the mod's own LAN mode run inside both players' 9 Kings.",
+  "maxPlayers": 2,
+  "protocol": {
+    "transport": "TCP",
+    "framing": "newline-delimited JSON",
+    "messages": [
+      { "id": "hello", "from": "both", "carries": "modVersion, chosenKing, seed" },
+      { "id": "state", "from": "both", "carries": "army layout, hp, positions each tick" },
+      { "id": "result", "from": "host", "carries": "round winner, next round seed" },
+      { "id": "bye", "from": "both", "carries": "match over" }
+    ],
+    "hostAddress": "IPv4:{port}",
+    "reconnectPolicy": "none in v1; drop = loss"
+  },
+  "meltyWiring": {
+    "contract": "melty's native multiplayer: at start empty {localappdata}/BoplKings/melty.log and read join= from melty.properties; empty = host on 0.0.0.0 (Melty's relay carries friends to it), write 'Melty join address: <ip>:<port>' to melty.log; address present = join, write 'Melty joined: <address>' or 'Melty join failed: <why>'",
+    "logLine": "Melty join address: ",
+    "logFile": "{localappdata}/BoplKings/melty.log",
+    "joinFile": "{localappdata}/BoplKings/melty.properties",
+    "joinKey": "join",
+    "hostPortEnv": "BOPLKINGS_PORT"
+  },
+  "relay": "melty's own relay carries joiners to the host's 0.0.0.0 listener — no port forwarding, ever",
+  "rows": [
+    { "role": "host", "starts": "join= empty: listens on 0.0.0.0, port from BOPLKINGS_PORT", "writes": "Melty join address: <ip>:<port>", "check": "ok" },
+    { "role": "joiner", "starts": "join=<address> present: connects and identifies", "writes": "Melty joined: <address> / Melty join failed: <why>", "check": "ok" }
+  ]
+}

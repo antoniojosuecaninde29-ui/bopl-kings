@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "mode": "installed",
+  "games": [
+    { "slug": "custom-9-kings", "role": "primary" },
+    { "slug": "custom-bopl-battle", "role": "companion" }
+  ],
+  "components": [
+    { "id": "main", "kind": "main", "label": "Bopl Kings + BepInEx 6 (be.788)", "fileName": "BoplKings-0.1.0.zip", "required": true }
+  ],
+  "requirements": [],
+  "mappings": [
+    { "component": "main", "from": "", "to": "{game}" }
+  ],
+  "launch": { "kind": "game" },
+  "settings": [
+    { "file": "{localappdata}/BoplKings/melty.properties", "set": { "bopl": "{game:custom-bopl-battle}", "slug": "bopl-kings" } }
+  ],
+  "runtimeData": ["{localappdata}/BoplKings"],
+  "multiplayer": {
+    "maxPlayers": 2,
+    "connect": {
+      "address": { "log": "{localappdata}/BoplKings/melty.log", "after": "Melty join address: " },
+      "joinFile": { "path": "{localappdata}/BoplKings/melty.properties", "key": "join" }
+    }
+  },
+  "test": {
+    "minutes": 5,
+    "checks": [
+      "bopl-content-read",
+      "king-select-shows-bopl-kings",
+      "bopl-ability-in-draft",
+      "ring-out-kills-unit",
+      "versus-host-listens"
+    ]
+  }
+}

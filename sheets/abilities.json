@@ -1,0 +1,86 @@
+{
+  "sheet": "abilities",
+  "what": "The Bopl ability pool the player drafts from, one card per round alongside the normal 9 Kings draft. Every name and description resolves at runtime from the player's installed Bopl Battle (boplRef); effects are the mashup's translation of Bopl's mechanics onto 9 Kings' grid battlefield.",
+  "rows": [
+    {
+      "id": "black_hole",
+      "boplRef": "bopl:abilities/black_hole",
+      "kind": "area",
+      "gridEffect": "Pulls all enemy units within 2 tiles one tile toward its center at battle start",
+      "cooldown": "once per battle",
+      "draftRank": "rare",
+      "targets": "enemy_cluster",
+      "check": "ok"
+    },
+    {
+      "id": "gravity_bomb",
+      "boplRef": "bopl:abilities/gravity_bomb",
+      "kind": "offense",
+      "gridEffect": "Lobs onto a tile: 8 damage to that tile and knockback 1 tile outward to all units adjacent",
+      "cooldown": "every battle",
+      "draftRank": "common",
+      "targets": "tile",
+      "check": "ok"
+    },
+    {
+      "id": "time_stop",
+      "boplRef": "bopl:abilities/time_stop",
+      "kind": "control",
+      "gridEffect": "Enemy units skip their next attack action entirely",
+      "cooldown": "every battle",
+      "draftRank": "uncommon",
+      "targets": "enemy_army",
+      "check": "ok"
+    },
+    {
+      "id": "shrink_ray",
+      "boplRef": "bopl:abilities/shrink_ray",
+      "kind": "debuff",
+      "gridEffect": "Target enemy unit deals half attack and counts half mass toward knockback resistance for the battle",
+      "cooldown": "once per battle",
+      "draftRank": "uncommon",
+      "targets": "unit",
+      "check": "ok"
+    },
+    {
+      "id": "engine",
+      "boplRef": "bopl:abilities/engine",
+      "kind": "mobility",
+      "gridEffect": "Shoves every unit in one chosen lane one tile toward the battlefield edge (theirs and yours; your Azure mass protects yours)",
+      "cooldown": "every battle",
+      "draftRank": "common",
+      "targets": "lane",
+      "check": "ok"
+    },
+    {
+      "id": "smoke",
+      "boplRef": "bopl:abilities/smoke",
+      "kind": "defense",
+      "gridEffect": "Your units in a chosen 2x2 area cannot be targeted by ranged attacks for one round",
+      "cooldown": "every battle",
+      "draftRank": "common",
+      "targets": "own_area",
+      "check": "ok"
+    },
+    {
+      "id": "vine",
+      "boplRef": "bopl:abilities/vine",
+      "kind": "control",
+      "gridEffect": "Tethers the nearest enemy unit in place for one round and drags it 1 tile toward your side when it breaks free",
+      "cooldown": "every battle",
+      "draftRank": "uncommon",
+      "targets": "unit",
+      "check": "ok"
+    },
+    {
+      "id": "missile",
+      "boplRef": "bopl:abilities/missile",
+      "kind": "offense",
+      "gridEffect": "Strikes one enemy unit anywhere on the field for 6 damage and knockback 1 tile",
+      "cooldown": "every battle",
+      "draftRank": "common",
+      "targets": "unit",
+      "check": "ok"
+    }
+  ]
+}
